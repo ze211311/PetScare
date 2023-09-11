@@ -1,8 +1,6 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import Image from "./img/studiot.jpg";
-import { Card } from "flowbite-react";
-import Status_post from "./status_post";
+import Image from "../Component/img/studiot.jpg";
+import Status_post from "../Component/status_post";
 
 const petStatus = () => {
   return (
@@ -26,12 +24,10 @@ const petStatus = () => {
         </div>
       </div>
       <div className="grid lg:w-1/2 w-full mx-auto p-2 ">
-        <Status_post/>
+        <Status_post imgPath={Image} ProfilePath={Image} Name={"Natthaphum Kongsatjaviwat"} Message={"Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."} />
       </div>
     </div>
   );
 };
 
 export default petStatus;
-
-const styles = StyleSheet.create({});
