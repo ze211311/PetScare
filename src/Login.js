@@ -13,7 +13,7 @@ const Login = () => {
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
     const LoginButt = async() => {
-        const res = await axios.get('http://localhost:6969/login?em=' + Email + '&pd=' + Password)
+        const res = await axios.get('http://localhost:6969/login?em='+ Email + '&pd=' + Password)
         console.log(res)
     }
 
@@ -47,7 +47,7 @@ const Login = () => {
                 />
             </div>
             <div className="mt-6">
-                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600" onClick={LoginButt}>
+                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600" type='button' onClick={LoginButt}>
                     Login
                 </button>
             </div>
