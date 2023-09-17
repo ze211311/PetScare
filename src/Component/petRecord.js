@@ -5,11 +5,12 @@ import Image_2 from "./img/record_butt.png"
 import Modal_editProf from "./modal_EditProf";
 import Modal_Vacc from './modal_Vacc';
 import Modal_appoint from './modal_Appoint';
+import BNav from './BNav';
 
 const petRecord = () => {
   return (
     <div>
-      <div className="my-10 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
+      <div className="my-5 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
         <div className="md:flex">
           <div className="md:shrink-0">
             <img
@@ -67,6 +68,7 @@ const petRecord = () => {
           </div>
         </div>
       </div>
+      <BNav/>
     </div>
     
   )

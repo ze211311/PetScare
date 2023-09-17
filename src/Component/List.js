@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Image from "./img/studiot.jpg"
 import Modal_editProf from "./modal_EditProf";
+import BNav from "./BNav";
 const List = () => {
   return (
     <div>
@@ -26,6 +27,7 @@ const List = () => {
           </div>
         </div>
       </div>
+      <BNav/>
     </div>
   );
 };

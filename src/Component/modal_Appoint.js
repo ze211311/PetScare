@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
+import { Button, Checkbox, Label, Modal, TextInput, Table } from 'flowbite-react';
 import React from "react";
 import Popup from 'reactjs-popup';
 import { useState } from "react";
@@ -17,34 +17,59 @@ const Modal_appoint = () => {
             />
             
                 </button>
-        <Modal show={openModal === 'form-elements'} size="md" popup onClose={() => setOpenModal(undefined)}>
+        <Modal show={openModal === 'form-elements'} size="xl" popup onClose={() => setOpenModal(undefined)}>
           <Modal.Body className="pt-8 bg-yellow-100 rounded">
             <div className="space-y-6 bg-yellow-100">
-              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Edit Profile</h3>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="email" value="Your email" />
-                </div>
-                <TextInput id="email" placeholder="name@tni.ac.th" required />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="username" value="Username : " />
-                </div>
-                <TextInput id="username" type="text" placeholder="Username" required />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="password" value="Your password :" />
-                </div>
-                <TextInput id="password" type="password" placeholder="Password" required />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="phone" value="Your phone number :" />
-                </div>
-                <TextInput id="tel" type="text" placeholder="0812345678" maxLength="10" required />
-              </div>
+            <Table hoverable>
+      <Table.Head>
+        <Table.HeadCell>
+          Date
+        </Table.HeadCell>
+        <Table.HeadCell>
+          Clinic
+        </Table.HeadCell>
+        <Table.HeadCell>
+          Vet.
+        </Table.HeadCell>
+      </Table.Head>
+      <Table.Body className="divide-y">
+        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+            Apple MacBook Pro 17"
+          </Table.Cell>
+          <Table.Cell>
+            Sliver
+          </Table.Cell>
+          <Table.Cell>
+            Laptop
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+            <p>
+              Microsoft Surface Pro
+            </p>
+          </Table.Cell>
+          <Table.Cell>
+            White
+          </Table.Cell>
+          <Table.Cell>
+            Laptop PC
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+            Magic Mouse 2
+          </Table.Cell>
+          <Table.Cell>
+            Black
+          </Table.Cell>
+          <Table.Cell>
+            Accessories
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
               <div className="w-full">
                 <Button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">Register</Button>
               </div>
