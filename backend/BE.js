@@ -11,7 +11,7 @@ app.use(cors());
 
 
 app.get('/', (req, res) => {
-    const sel = "select * from user;"
+    const sel = "select * from users;"
     db.query(sel, (err, result)=>{
         console.log(err)
         res.send(result);

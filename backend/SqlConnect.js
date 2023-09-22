@@ -1,11 +1,11 @@
-const mysql = require('mysql'); //import mysql2 lib
+const mysql = require('mysql2'); //import mysql2 lib
 // if insert it will return "insertId" as id of the row that just inserted
 
 const db = mysql.createPool({
     host: "localhost",
     user: "root",
-    password: "",
-    database: "petcare",
+    password: "admin",
+    database: "PetScarey",
     port: 3306,
 }); //create pool connection to mysql server
 

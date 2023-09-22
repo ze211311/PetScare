@@ -2,10 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './Login';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import List from './screen/List';
-import petRecord from './screen/petRecord';
-import petStatus from './screen/petStatus';
-import Status_post from './screen/status_post';
+import List from './Component/List';
+import petRecord from './Component/petRecord';
+import petStatus from './Component/petStatus';
+import Status_post from './Component/status_post';
 
 
 function App() {
