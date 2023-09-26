@@ -21,7 +21,4 @@ app.get('/', (req, res) => {
 
 app.get('/login', login)
 
-
-
-
 app.listen(6969);
