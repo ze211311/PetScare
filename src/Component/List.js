@@ -3,6 +3,8 @@ import React from "react";
 import Image from "./img/studiot.jpg"
 import Modal_editProf from "./modal_EditProf";
 import BNav from "./BNav";
+import PetCard from "./petCard";
+
 const List = () => {
   return (
     <div>
@@ -26,6 +28,9 @@ const List = () => {
             <Modal_editProf/>
           </div>
         </div>
+      </div>
+      <div className="my-10 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
+        <PetCard/>
       </div>
       <BNav/>
     </div>
