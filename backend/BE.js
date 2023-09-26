@@ -2,8 +2,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const app = express();
-const {db} = require('./SqlConnect.js')
-const { login, registerUS } = require('./login.js')
+const {db} = require('./modules/SqlConnect.js')
+const { login, registerUS } = require('./modules/login.js')
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
