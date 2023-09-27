@@ -4,7 +4,7 @@ import Status_post from "./status_post";
 import { useNavigate } from "react-router-dom"; //use for change page
 import Cookies from 'universal-cookie'; //use for manage cookie
 
-const petStatus = () => {
+const PetStatus = () => {
   const cookie = new Cookies(); //create val to use cookie
   const navigate = useNavigate(); //create val to navigate
   React.useEffect(() => {
@@ -12,6 +12,7 @@ const petStatus = () => {
       navigate("/")
     }
   }, []);
+
   return (
     <div>
       <div className="mx-2 my-10">
@@ -43,4 +44,4 @@ const petStatus = () => {
   );
 };
 
-export default petStatus;
+export default PetStatus;

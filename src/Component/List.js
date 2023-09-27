@@ -4,6 +4,7 @@ import Modal_editProf from "./modal_EditProf";
 import BNav from "./BNav";
 import { useNavigate } from "react-router-dom"; //use for change page
 import Cookies from 'universal-cookie'; //use for manage cookie
+import PetCard from './petCard';
 const List = () => {
   const cookie = new Cookies(); //create val to use cookie
   const navigate = useNavigate(); //create val to navigate
@@ -35,6 +36,9 @@ const List = () => {
             <Modal_editProf />
           </div>
         </div>
+      </div>
+      <div className="my-10 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
+        <PetCard />
       </div>
       <BNav />
     </div>

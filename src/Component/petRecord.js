@@ -8,7 +8,7 @@ import BNav from './BNav';
 import { useNavigate } from "react-router-dom"; //use for change page
 import Cookies from 'universal-cookie'; //use for manage cookie
 
-const petRecord = () => {
+const PetRecord = () => {
   const cookie = new Cookies(); //create val to use cookie
   const navigate = useNavigate(); //create val to navigate
   React.useEffect(() => {
@@ -83,4 +83,4 @@ const petRecord = () => {
   )
 }
 
-export default petRecord
+export default PetRecord
