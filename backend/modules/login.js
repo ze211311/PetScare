@@ -35,9 +35,9 @@ const login = async (req, res) => {
 
     try {
         let user = await checkLogin(email, password);
-        if (user == null) return res.status(403).json({ message: "email or password is incorrect!!" })
+        if (user == null) return res.status(200).json({ message: "email or password is incorrect!!" })
         const accessToken = GenAT(user);
-        res.json({ accessToken: accessToken })
+        res.json({ accessToken: accessToken,message:null })
     } catch (error) {
         console.log(error);
         res.send(500).json({ err: error })
