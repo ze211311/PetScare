@@ -48,7 +48,7 @@ const List = () => {
         </div>
       </div>
       <div className="my-10 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
-        <PetCard />
+        <PetCard PPicPath="pong.png" />
       </div>
       <BNav />
     </div>
