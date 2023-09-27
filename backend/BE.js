@@ -8,6 +8,7 @@ const { login, registerUS } = require('./modules/login.js')
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use('/images', express.static('images'));
 
 
 app.get('/', (req, res) => {

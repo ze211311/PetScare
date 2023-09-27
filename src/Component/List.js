@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "./img/studiot.jpg"
 import Modal_editProf from "./modal_EditProf";
 import BNav from "./BNav";
@@ -8,6 +8,16 @@ import PetCard from './petCard';
 const List = () => {
   const cookie = new Cookies(); //create val to use cookie
   const navigate = useNavigate(); //create val to navigate
+
+  // user info
+  const [Name, setName] = new useState('');
+  const [tel, setTel] = new useState('');
+  const [email, setEmail] = new useState('');
+  const [PicPath, setPicPath] = new useState('/Uplaceholder.png');
+
+  //pet info
+  const [AllPet, setAllPet] = new useState([]);
+
   React.useEffect(() => {
     if (cookie.get("token") == undefined) {
       navigate("/")
@@ -21,7 +31,7 @@ const List = () => {
           <div className="md:shrink-0">
             <img
               className="h-50 w-full object-cover md:h-full md:w-48"
-              src={Image}
+              src={"http://localhost:6969/images/userProfile/" + PicPath}
               alt="Profile Pic"
             />
           </div>
