@@ -12,7 +12,10 @@ const Modal_editProf = () => {
       <Modal show={openModal === 'form-elements'} size="md" popup onClose={() => setOpenModal(undefined)}>
         <Modal.Body className="pt-8 bg-yellow-100 rounded">
           <div className="space-y-6 bg-yellow-100">
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">Edit Profile</h3>
+            <div className="grid grid-cols-2">
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Edit Profile</h3>
+              <button className="ml-32 text-xl" onClick={() => setOpenModal(undefined)}>X</button>
+            </div>
             <div>
               <div className="mb-2 block">
                 <Label htmlFor="email" value="Your email" />

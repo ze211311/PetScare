@@ -12,7 +12,7 @@ function checkLogin(email, password) { //check is user login us correct
             }
             if (result.length == 0) resolve(null)
             else {
-                const token = { ID: result[0].ID}
+                const token = { ID: result[0].ID }
                 resolve(token)
             }
         })
@@ -37,7 +37,7 @@ const login = async (req, res) => {
         let user = await checkLogin(email, password);
         if (user == null) return res.status(200).json({ message: "email or password is incorrect!!" })
         const accessToken = GenAT(user);
-        res.json({ accessToken: accessToken,message:null })
+        res.json({ accessToken: accessToken, message: null })
     } catch (error) {
         console.log(error);
         res.send(500).json({ err: error })
@@ -47,12 +47,12 @@ const login = async (req, res) => {
 //for user
 const registerUS = (req, res) => {
     const user = req.body;
-    const sqlStatement = "insert into user(username,FirstName,LastName,email,phone,passwordH) values(?,?,?,lower(?),?,?)";
-    db.query(sqlStatement, [user.Username, user.Firstname, user.Lastname, user.Email, user.Phone, user.PD], (err, result) => {
-        if (err) return res.status(500).json({ message: "server failed" })
+    const sqlStatement = "insert into users(email,username,password,tel,Full_name) values(lower(?),?,?,?,?)";
+    db.query(sqlStatement, [user.email, user.username, user.password, user.tel, user.fullName], (err, result) => {
+        if (err) { console.log(err); return res.status(500).json({ message: "server failed" }) }
         if (result.insertId != 0) {
-            const temp = GenAT({ ID: result.insertId, isUser: true })
-            res.json({ accessToken: temp })
+            const temp = GenAT({ ID: result.insertId })
+            res.json({ accessToken: temp, message: null })
         } else {
             return res.status(500).json({ message: "server failed" })
         }
