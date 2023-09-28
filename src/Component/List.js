@@ -14,6 +14,8 @@ const List = () => {
   // user info
   const [FName, setFName] = new useState('');
   const [tel, setTel] = new useState('');
+  const [username, setUsername] = new useState('');
+  const [password, setPassword] = new useState('');
   const [email, setEmail] = new useState('');
   const [PicPath, setPicPath] = new useState('/Uplaceholder.png');
 
@@ -29,6 +31,8 @@ const List = () => {
         setFName(response.data[0].Full_name);
         setTel(response.data[0].tel)
         setEmail(response.data[0].email)
+        setUsername(response.data[0].username)
+        setPassword(response.data[0].password)
         if (response.data[0].propic_path != null) {
           setPicPath(response.data[0].propic_path)
         }
@@ -55,7 +59,7 @@ const List = () => {
             <p className="mt-1 text-slate-500">
               Email : {email}
             </p>
-            <Modal_editProf />
+            <Modal_editProf username={username} email={email} tel={tel} pd={password} />
           </div>
         </div>
       </div>

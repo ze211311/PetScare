@@ -109,3 +109,5 @@ create table
         Foreign Key (Vac_ID) REFERENCES Vaccine(Vac_ID),
         Foreign Key (Sym_ID) REFERENCES Symtom(Sym_ID)
     );
+
+select * from users;
