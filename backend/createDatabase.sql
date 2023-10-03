@@ -111,3 +111,9 @@ create table
     );
 
 select * from users;
+
+insert into users(username,password, tel,email,Full_name) VALUES("otto","otto123","0812345678","otto@tni.ac.th","Natthaphum Kongsatjaviwat");
+
+insert into users(username,password, tel,email,Full_name) VALUES("GyozaAmogus","GyozaAmogus123","0912345678","GyozaAmogus6969@tni.ac.th","Aiya Tutsanachaiyasit");
+
+insert into users(username,password, tel,email,Full_name) VALUES("sea","sea123","0712345678","sea@tni.ac.th","Narongkorn Sangayotin");
