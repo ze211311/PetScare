@@ -66,7 +66,7 @@ const List = () => {
       <div className="my-10 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
         {(AllPet.length != 0) ? <PetCard PPicPath="pong.png" /> : <div className="text-center p-2">YOU HAVE NO PET ON OUR PLATFORM!!!</div>}
       </div>
-      <BNav />
+      <BNav cookie={cookie} />
     </div>
   );
 };

@@ -1,7 +1,6 @@
-import { View, Text } from "react-native";
 import React from "react";
 
-const BNav = () => {
+const BNav = (context) => {
   return (
     <div className="fixed z-50 w-full h-12 max-w-lg -translate-x-1/2 bg-white border border-gray-200 rounded-full bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
       <div className="grid h-full max-w-lg grid-cols-3 mx-auto">
@@ -32,6 +31,10 @@ const BNav = () => {
           data-tooltip-target="tooltip-wallet"
           type="button"
           className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+          onClick={() => {
+            context.cookie.remove("token")
+            window.location.reload(false);
+          }}
         >
           <svg
             className="w-8 h-8 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-yellow-300 dark:group-hover:text-blue-500"
