@@ -11,7 +11,9 @@ create table
         email varchar(30),
         Full_name varchar(25),
         propic_path varchar(26),
-        User_type varchar(10)
+        User_type varchar(10), 
+        pid INTEGER not null,
+        Foreign Key (pid) REFERENCES pet(pid)
     );
 
 -- insert into users(username,password, tel,email,Full_name) VALUES("test","test","1234567890","test","test");
