@@ -4,6 +4,7 @@ import Image_2 from "./img/record_butt.png"
 import Modal_editProf from "./modal_EditProf";
 import Modal_Vacc from './modal_Vacc';
 import Modal_appoint from './modal_Appoint';
+import Modal_editPet from './modal_EditPet';
 import BNav from './BNav';
 import { useNavigate } from "react-router-dom"; //use for change page
 import Cookies from 'universal-cookie'; //use for manage cookie
@@ -36,7 +37,7 @@ const PetRecord = () => {
             <p className="mt-1 text-slate-500">
               Type : Dog
             </p>
-            <Modal_editProf />
+            <Modal_editPet />
           </div>
         </div>
       </div>

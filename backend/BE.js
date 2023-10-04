@@ -7,6 +7,7 @@ const { login, registerUS } = require('./modules/login.js')
 const { getUser } = require('./modules/User.js')
 const fileUpload = require('express-fileupload')
 const { uploadUProfile } = require('./modules/imgUP.js');
+const { getPetCard } = require('./modules/user_side.js');
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,5 +31,7 @@ app.get('/login', login)
 app.get('/getUser', getUser)
 
 app.post('/upload/UProfile', fileUpload({ createParentPath: true, limits: { fileSize: 5 * 1024 * 1024 } }), uploadUProfile)
+
+app.get('/user/getPet', getPetCard)
 
 app.listen(6969);

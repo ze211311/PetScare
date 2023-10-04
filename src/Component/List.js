@@ -37,8 +37,18 @@ const List = () => {
           setPicPath(response.data[0].propic_path)
         }
       })
+      axios.get("http://localhost:6969/user/getPet?ID=" + jwt(cookie.get("token")).ID).then(response => {
+        setAllPet(response.data)
+        console.log(response.data)
+      })
     }
   }, []);
+
+  function loopPetCard () {
+    for (let i=0; i<AllPet.length; i++) {
+      <PetCard PPicPath="pong.png" /> 
+    }
+  };
 
   return (
     <div>
@@ -63,8 +73,8 @@ const List = () => {
           </div>
         </div>
       </div>
-      <div className="my-10 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
-        {(AllPet.length != 0) ? <PetCard PPicPath="pong.png" /> : <div className="text-center p-2">YOU HAVE NO PET ON OUR PLATFORM!!!</div>}
+      <div className="my-10 mx-auto max-w-auto bg-yellow rounded-xl overflow-hidden md:max-w-max">
+        {(AllPet.length != 0) ? AllPet.map((item, i)=> <PetCard key={i} item={item} />) : <div className="text-center p-2">YOU HAVE NO PET ON OUR PLATFORM!!!</div>}
       </div>
       <BNav cookie={cookie} />
     </div>

@@ -11,14 +11,17 @@ create table
         email varchar(30),
         Full_name varchar(25),
         propic_path varchar(26),
-        User_type varchar(10), 
-        pid INTEGER not null,
-        Foreign Key (pid) REFERENCES pet(pid)
+        User_type BOOLEAN default false -- True = Vet : False = user
     );
 
 -- insert into users(username,password, tel,email,Full_name) VALUES("test","test","1234567890","test","test");
 
 -- select * from users;
+create table
+    if not exists Vet(
+        Vet_id INTEGER PRIMARY KEY,
+        Vet_name VARCHAR(20) not null
+    );
 
 create table
     if not exists Pet(
@@ -27,7 +30,11 @@ create table
         age INTEGER,
         weight FLOAT,
         clinic VARCHAR(24),
-        petpicpath VARCHAR(26)
+        petpicpath VARCHAR(26),
+        uid INTEGER not null,
+        Vet_id INTEGER not null,
+        Foreign Key (uid) REFERENCES users(uid),
+        Foreign Key (Vet_id) REFERENCES Vet(Vet_id)
     );
 
 create table
@@ -48,22 +55,7 @@ create TABLE
         Tre_name varchar(20) not null
     );
 
-create table
-    if not exists Vet(
-        Vet_id INTEGER auto_increment PRIMARY KEY,
-        Vet_name VARCHAR(20) not null
-    );
 
-create table
-    if not exists Lists(
-        pid INTEGER not null,
-        Vet_id INTEGER not null,
-        uid INTEGER not null,
-        PRIMARY KEY(pid, Vet_id),
-        Foreign Key (pid) REFERENCES Pet(pid),
-        Foreign Key (Vet_id) REFERENCES Vet(Vet_id),
-        Foreign Key (uid) REFERENCES users(uid)
-    );
 
 create table
     if not exists Appointments(
@@ -114,8 +106,11 @@ create table
 
 select * from users;
 
+
 insert into users(username,password, tel,email,Full_name) VALUES("otto","otto123","0812345678","otto@tni.ac.th","Natthaphum Kongsatjaviwat");
-
 insert into users(username,password, tel,email,Full_name) VALUES("GyozaAmogus","GyozaAmogus123","0912345678","GyozaAmogus6969@tni.ac.th","Aiya Tutsanachaiyasit");
-
 insert into users(username,password, tel,email,Full_name) VALUES("sea","sea123","0712345678","sea@tni.ac.th","Narongkorn Sangayotin");
+
+select * from Pet P join Vet V on P.Vet_id = V.Vet_id where uid = 1;
+
+
