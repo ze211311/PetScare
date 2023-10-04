@@ -1,15 +1,19 @@
 import React from "react";
 import Image from "./img/studiot.jpg";
 import Status_post from "./status_post";
-import { useNavigate } from "react-router-dom"; //use for change page
+import { useNavigate, useLocation } from "react-router-dom"; //use for change page
 import Cookies from 'universal-cookie'; //use for manage cookie
 
 const PetStatus = () => {
   const cookie = new Cookies(); //create val to use cookie
   const navigate = useNavigate(); //create val to navigate
+  const location = useLocation().hash;
   React.useEffect(() => {
     if (cookie.get("token") == undefined) {
       navigate("/")
+    }
+    else {
+      console.log(location);
     }
   }, []);
 

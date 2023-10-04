@@ -6,7 +6,7 @@ import { Card } from 'flowbite-react';
 const PetCard = (context) => {
   const picPath = (context.item.petpicpath != null) ? context.item.petpicpath : "Pplaceholder.png";
   return (
-    <a href="#" className="flex flex-col items-center mt-2 bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <a href={"/petstat#" + context.item.pid} className="flex flex-col items-center mt-2 bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
       <img
         className="h-50 w-full object-cover md:h-full md:w-48"
         src={"http://localhost:6969/images/petProfile/" + picPath}

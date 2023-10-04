@@ -39,7 +39,6 @@ const List = () => {
       })
       axios.get("http://localhost:6969/user/getPet?ID=" + jwt(cookie.get("token")).ID).then(response => {
         setAllPet(response.data)
-        console.log(response.data)
       })
     }
   }, []);
