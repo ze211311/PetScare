@@ -1,7 +1,4 @@
-import { View, Text } from 'react-native'
 import React from 'react'
-import Image from "./img/studiot.jpg"
-import { Card } from 'flowbite-react';
 
 const PetCard = (context) => {
   const picPath = (context.item.petpicpath != null) ? context.item.petpicpath : "Pplaceholder.png";
