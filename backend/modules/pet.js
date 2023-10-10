@@ -15,7 +15,7 @@ const UpdatePet = (req, res) => {
 
 const getAPet = (req, res) => {
     const id = req.query.id;
-    const sqlStatement = "select * from Pet where pid = ?;";
+    const sqlStatement = "select * from Pet p join Vet v on p.Vet_id = v.Vet_id where pid = ?;";
     db.query(sqlStatement, [id], (err, result) => {
         if (err) {
             console.log(err);

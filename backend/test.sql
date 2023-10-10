@@ -14,3 +14,5 @@ insert into Pet(pet_name, age, weight, clinic, uid, vet_id)
 select * from Pet;
 
 update Pet set petType = "Pong";
+
+select * from Pet p join Vet v on p.Vet_id = v.Vet_id where pid = 2;

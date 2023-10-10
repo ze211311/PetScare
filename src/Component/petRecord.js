@@ -1,20 +1,32 @@
-import React from 'react'
-import Image from "./img/studiot.jpg"
+import { React, useState, useEffect } from 'react'
 import Image_2 from "./img/record_butt.png"
-import Modal_editProf from "./modal_EditProf";
 import Modal_Vacc from './modal_Vacc';
 import Modal_appoint from './modal_Appoint';
 import Modal_editPet from './modal_EditPet';
 import BNav from './BNav';
-import { useNavigate } from "react-router-dom"; //use for change page
+import { useNavigate, useLocation } from "react-router-dom"; //use for change page
 import Cookies from 'universal-cookie'; //use for manage cookie
+import axios from "axios";
 
 const PetRecord = () => {
   const cookie = new Cookies(); //create val to use cookie
   const navigate = useNavigate(); //create val to navigate
-  React.useEffect(() => {
+  const location = useLocation().hash;
+  const [pet, setPet] = useState({});
+  const [ppath, setppath] = useState("/Pplaceholder.png");
+
+  useEffect(() => {
     if (cookie.get("token") == undefined) {
       navigate("/")
+    }
+    else {
+      axios.get("http://localhost:6969/user/getAPet?id=" + location.slice(1)).then(response => {
+        console.log(response.data)
+        setPet(response.data[0])
+        if (response.data[0].petpicpath != null) {
+          setppath(response.data[0].petpicpath)
+        }
+      })
     }
   }, []);
 
@@ -25,19 +37,19 @@ const PetRecord = () => {
           <div className="md:shrink-0">
             <img
               className="h-50 w-full object-cover md:h-full md:w-48"
-              src={Image}
+              src={"http://localhost:6969/images/petProfile/" + ppath}
               alt="Profile Pic"
             />
           </div>
           <div className="p-8">
             <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-              Isabella
+              {pet.pet_name}
             </div>
-            <p className="mt-1 text-slate-500">Age : 3 Y</p>
+            <p className="mt-1 text-slate-500">Age : {pet.age} Y</p>
             <p className="mt-1 text-slate-500">
-              Type : Dog
+              Type : {pet.petType}
             </p>
-            <Modal_editPet />
+            <Modal_editPet pet={pet} />
           </div>
         </div>
       </div>
@@ -46,16 +58,16 @@ const PetRecord = () => {
           <div className="p-8">
 
             <p className="mt-1 text-slate-500">
-              <span className='text-purple-500'>Weight : </span>20 KG.
+              <span className='text-purple-500'>Weight : </span>{pet.weight} KG.
             </p>
             <p className="mt-1 text-slate-500">
-              <span className='text-purple-500'>Birth-date : </span>9/9/2023
+              <span className='text-purple-500'>Birth-date : </span>
             </p>
             <p className="mt-1 text-slate-500">
-              <span className='text-purple-500'>Clinic : </span>Sunshine Cleaning Clinic
+              <span className='text-purple-500'>Clinic : </span>{pet.clinic}
             </p>
             <p className="mt-1 text-slate-500">
-              <span className='text-purple-500'>Veterinarian : </span>Natthaphum Kongsatjaviwat
+              <span className='text-purple-500'>Veterinarian : </span>{pet.Vet_name}
             </p>
             <div className='grid grid-cols-3 divide-x-8 divide-white'>
               <div className="mt-6">

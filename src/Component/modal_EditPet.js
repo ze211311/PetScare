@@ -1,18 +1,28 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
+import { Button, Label, Modal, TextInput } from 'flowbite-react';
 import React from "react";
-import Popup from 'reactjs-popup';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Modal_editProf = () => {
+const Modal_editProf = (context) => {
   const [openModal, setOpenModal] = useState("");
+  const [pid, setpid] = useState("");
+  const [pet_name, setPet_name] = useState("");
+  const [age, setAge] = useState(0);
+  const [weight, setWeight] = useState(0.0);
+  const [clinic, setClinic] = useState("");
+  const [petType, setPetType] = useState("");
+  useEffect(() => {
+  }, [openModal]);
+
   return (
     <>
       <Button className="mt-10 w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600" onClick={() => setOpenModal('form-elements')}>Edit Profile</Button>
       <Modal show={openModal === 'form-elements'} size="md" popup onClose={() => setOpenModal(undefined)}>
         <Modal.Body className="pt-8 bg-yellow-100 rounded">
           <div className="space-y-6 bg-yellow-100">
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">Edit Pet Profile</h3>
+            <div className='grid grid-cols-2'>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Edit Pet Profile</h3>
+              <button className="ml-32 text-xl" onClick={() => setOpenModal(undefined)}>X</button>
+            </div>
             <div>
               <div className="mb-2 block">
                 <Label htmlFor="email" value="Your email" />
