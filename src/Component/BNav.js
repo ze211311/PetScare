@@ -1,6 +1,8 @@
 import React from "react";
+import Cookies from 'universal-cookie'; //use for manage cookie
 
-const BNav = (context) => {
+const BNav = () => {
+  const cookie = new Cookies(); //create val to use cookie
   return (
     <div className="fixed z-50 w-full h-12 max-w-lg -translate-x-1/2 bg-white border border-gray-200 rounded-full bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
       <div className="grid h-full max-w-lg grid-cols-3 mx-auto">
@@ -32,7 +34,7 @@ const BNav = (context) => {
           type="button"
           className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           onClick={() => {
-            context.cookie.remove("token")
+            cookie.remove("token")
             window.location.reload(false);
           }}
         >

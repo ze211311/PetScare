@@ -12,10 +12,10 @@ const getUser = (req, res) => {
 const updateUser = (req, res) => {
     const id = req.query.id;
     const data = req.body;
-    const sqlStatement = "update users set pet_name = ?, age = ?, weight = ?, clinic = ?, petType = ? where uid = ?";
-    db.query(sqlStatement, [data.pet_name, data.age, data.weight, data.clinic, data.petType, id], (err, result) => {
+    const sqlStatement = "update users set tel = ?, username = ?, password = ?, email = ? where uid = ?";
+    db.query(sqlStatement, [data.phone, data.username, data.password, data.email, id], (err, result) => {
         if (err) { console.log(err); return res.status(500) }
-        return res.status(200)
+       res.status(200).send("ok")
     });
 }
 

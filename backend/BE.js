@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const { db } = require('./modules/SqlConnect.js')
 const { login, registerUS } = require('./modules/login.js')
-const { getUser } = require('./modules/User.js')
+const { getUser, updateUser } = require('./modules/User.js')
 const fileUpload = require('express-fileupload')
 const { uploadUProfile } = require('./modules/imgUP.js');
 const { getPetCard } = require('./modules/user_side.js');
@@ -35,5 +35,7 @@ app.post('/upload/UProfile', fileUpload({ createParentPath: true, limits: { file
 app.get('/user/getPet', getPetCard)
 
 app.get('/user/getAPet', getAPet)
+
+app.post('/user/update',updateUser)
 
 app.listen(6969);

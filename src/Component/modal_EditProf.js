@@ -30,7 +30,12 @@ const Modal_editProf = (context) => {
       const res = await axios.post('http://localhost:6969/upload/UProfile?ID=' + jwt(cookie.get("token")).ID, profile)
       console.log(res)
     }
-    const res = await axios.
+    const res = await axios.post("http://localhost:6969/user/update?id=" + jwt(cookie.get("token")).ID, {
+      "phone": tel,
+      "username": username,
+      "password": password,
+      "email": email
+    })
     setOpenModal(undefined);
     window.location.reload(false);
   }
@@ -84,7 +89,7 @@ const Modal_editProf = (context) => {
               {(profile != null) ? <img src={URL.createObjectURL(profile[0])} /> : <></>}
             </div>
             <div className="w-full">
-              <Button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+              <Button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600" type='button'
                 onClick={() => updateProfile()}
               >Register</Button>
             </div>

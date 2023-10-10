@@ -75,7 +75,7 @@ const List = () => {
       <div className="my-10 mx-auto max-w-auto bg-yellow rounded-xl overflow-hidden md:max-w-max">
         {(AllPet.length != 0) ? AllPet.map((item, i)=> <PetCard key={i} item={item} />) : <div className="text-center p-2">YOU HAVE NO PET ON OUR PLATFORM!!!</div>}
       </div>
-      <BNav cookie={cookie} />
+      <BNav />
     </div>
   );
 };
