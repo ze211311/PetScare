@@ -45,4 +45,34 @@ const getStatus = (req, res) => {
   });
 };
 
-module.exports = { UpdatePet, getAPet, getStatus };
+const regPet = (req, res) => {
+    const data = req.body;
+    const sqlStatement = 
+        "insert into Pet(pet_name, age, weight, clinic, uid, petType) values (?,?,?,?,?,?);";
+        db.query(
+            sqlStatement,
+            [data.pname, data.age, data.weight, data.clinic, data.id, data.pType ],
+            (err, result) => {
+              if (err) {
+                console.log(err);
+                return res.status(500);
+              }
+              res.status(200).send("ok");
+            }
+          );
+}
+
+const getVac = (req, res) => {
+  const id = req.query.id;
+  const sqlStatement =
+    "select * from Vaccine_List VL join Vaccine V on VL.Vac_ID = V.Vac_ID join Pet p on p.pid = VL.pid join Vet v on v.Vet_id = p.Vet_id where VL.pid = ?;";
+    db.query(sqlStatement, [id], (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(500);
+      }
+      res.send(result);
+    });
+}
+
+module.exports = { UpdatePet, getAPet, getStatus, regPet, getVac };

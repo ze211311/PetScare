@@ -20,6 +20,10 @@ const Modal_appoint = () => {
       <Modal show={openModal === 'form-elements'} size="xl" popup onClose={() => setOpenModal(undefined)}>
         <Modal.Body className="pt-8 bg-yellow-100 rounded">
           <div className="space-y-6 bg-yellow-100">
+          <div className="grid grid-cols-2">
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Appointment</h3>
+              <button className="ml-56 text-xl" onClick={() => setOpenModal(undefined)}>X</button>
+            </div>
             <Table hoverable>
               <Table.Head>
                 <Table.HeadCell>

@@ -49,7 +49,7 @@ const Status_post = (context) => {
           {item.Sdesc}
         </p>
       </Card>
-    </div>) : <div className="text-center p-2">YOU HAVE NO PET ON OUR PLATFORM!!!</div>}
+    </div>) : <div className="text-center p-2">YOU HAVE NO STATUS REPORT!!!</div>}
     </div>
   )
 }

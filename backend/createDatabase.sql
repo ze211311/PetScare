@@ -34,12 +34,13 @@ create table
         petpicpath VARCHAR(26),
         petType VARCHAR(12),
         uid INTEGER not null,
-        Vet_id INTEGER not null,
+        Vet_id INTEGER,
         Foreign Key (uid) REFERENCES users(uid),
         Foreign Key (Vet_id) REFERENCES Vet(Vet_id)
     );
 
 alter table Pet add petType varchar(26);
+alter table Pet remove Vet_id;
 
 create table
     if not exists Vaccine(
@@ -98,13 +99,11 @@ create table
     if not exists Vaccine_List(
         VL_ID INTEGER AUTO_INCREMENT not null,
         Vac_ID INTEGER not null,
-        Sym_ID INTEGER not null,
         pid INTEGER not null,
         DDate DATE DEFAULT (CURRENT_DATE),
-        PRIMARY KEY(VL_ID, Vac_ID, Sym_ID, pid),
+        PRIMARY KEY(VL_ID, Vac_ID, pid),
         Foreign Key (pid) REFERENCES Pet(pid),
-        Foreign Key (Vac_ID) REFERENCES Vaccine(Vac_ID),
-        Foreign Key (Sym_ID) REFERENCES Symtom(Sym_ID)
+        Foreign Key (Vac_ID) REFERENCES Vaccine(Vac_ID)
     );
 
 select * from users;
