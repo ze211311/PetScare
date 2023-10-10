@@ -3,6 +3,7 @@ import Status_post from "./status_post";
 import { useNavigate, useLocation } from "react-router-dom"; //use for change page
 import Cookies from 'universal-cookie'; //use for manage cookie
 import axios from "axios";
+import BNav from "./BNav";
 
 const PetStatus = () => {
   const cookie = new Cookies(); //create val to use cookie
@@ -53,6 +54,7 @@ const PetStatus = () => {
       <div className="grid lg:w-1/2 w-full mx-auto p-2 ">
         <Status_post />
       </div>
+      <BNav cookie={cookie} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button, Checkbox, Label, Modal, TextInput, Table } from 'flowbite-react';
 import React from "react";
 import { useState } from "react";
-import Image_2 from "./img/record_butt.png"
+import Image_2 from "./img/vac.png"
 
 const Modal_Vacc = () => {
   const [openModal, setOpenModal] = useState("");

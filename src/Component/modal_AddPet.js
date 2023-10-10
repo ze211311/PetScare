@@ -2,7 +2,7 @@ import { Button, Label, Modal, TextInput } from 'flowbite-react';
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Modal_editPet = (context) => {
+const Modal_AddPet = (context) => {
   const [openModal, setOpenModal] = useState("");
   const [pid, setpid] = useState("");
   const [pet_name, setPet_name] = useState("");
@@ -88,4 +88,4 @@ const Modal_editPet = (context) => {
   );
 };
 
-export default Modal_editPet;
+export default Modal_AddPet;

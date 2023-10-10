@@ -70,9 +70,9 @@ const PetRecord = () => {
             </p>
             <div className='grid grid-cols-3 divide-x-8 divide-white'>
               <div className="mt-6">
-                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-700 rounded-md hover:bg-green-600 focus:outline-none focus:bg-purple-600">
+                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-yellow-300 rounded-md hover:bg-yellow-200 focus:outline-none focus:bg-yellow-600">
                   <img
-                    className="h-50 w-full object-cover md:h-full md:w-48"
+                    className="h-5 w-5 object-cover md:h-full md:w-48"
                     src={Image_2}
                     alt="Profile Pic"
                   />
@@ -89,7 +89,7 @@ const PetRecord = () => {
           </div>
         </div>
       </div>
-      <BNav />
+      <BNav cookie={cookie} />
     </div>
 
   )

@@ -3,7 +3,7 @@ import { Button, Checkbox, Label, Modal, TextInput, Table } from 'flowbite-react
 import React from "react";
 import Popup from 'reactjs-popup';
 import { useState } from "react";
-import Image_2 from "./img/record_butt.png"
+import Image_2 from "./img/cal.png"
 
 const Modal_appoint = () => {
   const [openModal, setOpenModal] = useState("");
