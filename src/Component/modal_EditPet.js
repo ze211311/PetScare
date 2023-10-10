@@ -1,6 +1,7 @@
 import { Button, Label, Modal, TextInput } from 'flowbite-react';
 import React from "react";
 import { useState, useEffect } from "react";
+import axios from 'axios';
 
 const Modal_editProf = (context) => {
   const [openModal, setOpenModal] = useState("");
@@ -22,6 +23,21 @@ const Modal_editProf = (context) => {
     setPetType(context.pet.petType)
     setProfile()
   }, [openModal]);
+
+  const updatePet = async () => {
+    if (profile != null) {
+      const res = await axios.post('http://localhost:6969/upload/PProfile?ID=' + pid, profile)
+    }
+    const res = await axios.post("http://localhost:6969/pet/update?id=" + pid, {
+      "pname": pet_name,
+      "age": age,
+      "weight": weight,
+      "clinic": clinic,
+      "pType": petType
+    })
+    setOpenModal(undefined);
+    window.location.reload(false);
+  }
 
   return (
     <>
@@ -79,7 +95,7 @@ const Modal_editProf = (context) => {
               {(profile != null) ? <img src={URL.createObjectURL(profile[0])} /> : <></>}
             </div>
             <div className="w-full">
-              <Button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">Register</Button>
+              <Button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600" onClick={() => { updatePet() }}>Register</Button>
             </div>
           </div>
         </Modal.Body>

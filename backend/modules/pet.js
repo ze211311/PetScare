@@ -9,7 +9,7 @@ const UpdatePet = (req, res) => {
             console.log(err)
             return res.status(500)
         }
-        return res.status(200)
+        res.status(200).send("ok")
     })
 }
 
