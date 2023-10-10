@@ -60,9 +60,6 @@ const PetRecord = () => {
               <span className='text-purple-500'>Weight : </span>{pet.weight} KG.
             </p>
             <p className="mt-1 text-slate-500">
-              <span className='text-purple-500'>Birth-date : </span>
-            </p>
-            <p className="mt-1 text-slate-500">
               <span className='text-purple-500'>Clinic : </span>{pet.clinic}
             </p>
             <p className="mt-1 text-slate-500">
@@ -70,7 +67,7 @@ const PetRecord = () => {
             </p>
             <div className='grid grid-cols-3 divide-x-8 divide-white'>
               <div className="mt-6">
-                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-yellow-300 rounded-md hover:bg-yellow-200 focus:outline-none focus:bg-yellow-600">
+                <button onClick={()=>{navigate('/petStat#'+pet.pid)}} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-yellow-300 rounded-md hover:bg-yellow-200 focus:outline-none focus:bg-yellow-600">
                   <img
                     className="h-5 w-5 object-cover md:h-full md:w-48"
                     src={Image_2}

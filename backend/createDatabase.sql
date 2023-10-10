@@ -39,7 +39,7 @@ create table
         Foreign Key (Vet_id) REFERENCES Vet(Vet_id)
     );
 
--- alter table Pet add petType varchar(26);
+alter table Pet add petType varchar(26);
 
 create table
     if not exists Vaccine(
@@ -86,6 +86,7 @@ create table
         Sym_ID INTEGER not null,
         pid INTEGER not null,
         Sdesc VARCHAR(30),
+        stapicpath varchar(26),
         DDate DATE DEFAULT (CURRENT_DATE),
         PRIMARY KEY(Status_ID, Vet_id, Sym_ID),
         Foreign Key (Vet_id) REFERENCES Vet(Vet_id),

@@ -1,4 +1,4 @@
--- Active: 1695731949474@@localhost@3306@PetScarey
+-- Active: 1695990007529@@127.0.0.1@3306@PetScarey
 use PetScarey;
 
 insert into Vet values (1,"test1")
@@ -17,3 +17,15 @@ update Pet set petType = "Pong";
 
 select * from Pet p join Vet v on p.Vet_id = v.Vet_id where pid = 2;
 update users set propic_path = null;
+
+ insert into Symtom(Sym_name) values ("Food Poisoning");
+ insert into Symtom(Sym_name) values ("Allergies");
+ insert into Symtom(Sym_name) values ("Skin Infection");
+ insert into Symtom(Sym_name) values ("Eye Injuries");
+ insert into Symtom(Sym_name) values ("Flea and Tick");
+
+ insert into Status(Vet_id,Sym_ID,pid,Sdesc) values (1,1,1,"He's fine")
+
+ insert into Status(Vet_id,Sym_ID,pid,Sdesc) values (1,2,1,"He's Ded")
+ insert into Status(Vet_id,Sym_ID,pid,Sdesc) values (1,3,1,"He's OK")
+ insert into Status(Vet_id,Sym_ID,pid,Sdesc) values (1,4,1,"He's F")

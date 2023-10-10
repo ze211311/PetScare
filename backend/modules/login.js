@@ -3,7 +3,7 @@ require('dotenv').config(); // this line make you be able to access value in .en
 const { db } = require("./SqlConnect.js"); // import db from MysqlConnect.js use for execute sql command
 
 function checkLogin(email, password) { //check is user login us correct
-    const sqlStatement = `select uid as ID from users where email = lower(?) and password = ?;`;
+    const sqlStatement = `select uid as ID, User_type as A from users where email = lower(?) and password = ?;`;
     return new Promise((resolve) => {
         db.query(sqlStatement, [email, password], (err, result) => {
             if (err) {
@@ -12,7 +12,7 @@ function checkLogin(email, password) { //check is user login us correct
             }
             if (result.length == 0) resolve(null)
             else {
-                const token = { ID: result[0].ID }
+                const token = { ID: result[0].ID, Admin: result[0].A }
                 resolve(token)
             }
         })
@@ -51,7 +51,7 @@ const registerUS = (req, res) => {
     db.query(sqlStatement, [user.email, user.username, user.password, user.tel, user.fullName], (err, result) => {
         if (err) { console.log(err); return res.status(500).json({ message: "server failed" }) }
         if (result.insertId != 0) {
-            const temp = GenAT({ ID: result.insertId })
+            const temp = GenAT({ ID: result.insertId, Admin: 0 })
             res.json({ accessToken: temp, message: null })
         } else {
             return res.status(500).json({ message: "server failed" })

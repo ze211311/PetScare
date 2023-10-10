@@ -43,14 +43,8 @@ const List = () => {
     }
   }, []);
 
-  function loopPetCard () {
-    for (let i=0; i<AllPet.length; i++) {
-      <PetCard PPicPath="pong.png" /> 
-    }
-  };
-
   return (
-    <div>
+    <div >
       <div className="my-10 mx-auto max-w-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-max">
         <div className="md:flex">
           <div className="md:shrink-0">
@@ -72,7 +66,7 @@ const List = () => {
           </div>
         </div>
       </div>
-      <div className="my-10 mx-auto max-w-auto bg-yellow rounded-xl overflow-hidden md:max-w-max">
+      <div className="mt-10 mx-auto max-w-auto bg-yellow rounded-xl overflow-hidden md:max-w-max mb-20">
         {(AllPet.length != 0) ? AllPet.map((item, i)=> <PetCard key={i} item={item} />) : <div className="text-center p-2">YOU HAVE NO PET ON OUR PLATFORM!!!</div>}
       </div>
       <BNav />

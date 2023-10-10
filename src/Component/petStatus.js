@@ -18,7 +18,6 @@ const PetStatus = () => {
     }
     else {
       axios.get("http://localhost:6969/user/getAPet?id=" + location.slice(1)).then(response => {
-        console.log(response.data)
         setPet(response.data[0])
         if (response.data[0].petpicpath != null) {
           setppath(response.data[0].petpicpath)
@@ -51,8 +50,9 @@ const PetStatus = () => {
           </div>
         </div>
       </div>
-      <div className="grid lg:w-1/2 w-full mx-auto p-2 ">
+      <div className="grid lg:w-1/2 w-full mx-auto p-2 mb-20">
         <Status_post />
+        
       </div>
       <BNav cookie={cookie} />
     </div>
