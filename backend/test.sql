@@ -16,3 +16,4 @@ select * from Pet;
 update Pet set petType = "Pong";
 
 select * from Pet p join Vet v on p.Vet_id = v.Vet_id where pid = 2;
+update users set propic_path = null;

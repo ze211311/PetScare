@@ -60,4 +60,4 @@ const uploadPProfile = (req, res) => {
     return res.status(200).send()
 }
 
-module.exports = { uploadUProfile, uploadUProfile }
+module.exports = { uploadUProfile, uploadPProfile }

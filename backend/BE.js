@@ -6,7 +6,7 @@ const { db } = require('./modules/SqlConnect.js')
 const { login, registerUS } = require('./modules/login.js')
 const { getUser, updateUser } = require('./modules/User.js')
 const fileUpload = require('express-fileupload')
-const { uploadUProfile } = require('./modules/imgUP.js');
+const { uploadUProfile, uploadPProfile } = require('./modules/imgUP.js');
 const { getPetCard } = require('./modules/user_side.js');
 const { UpdatePet, getAPet } = require('./modules/pet.js')
 
@@ -32,10 +32,14 @@ app.get('/getUser', getUser)
 
 app.post('/upload/UProfile', fileUpload({ createParentPath: true, limits: { fileSize: 5 * 1024 * 1024 } }), uploadUProfile)
 
+app.post('/upload/PProfile', fileUpload({ createParentPath: true, limits: { fileSize: 5 * 1024 * 1024 } }), uploadPProfile)
+
 app.get('/user/getPet', getPetCard)
 
 app.get('/user/getAPet', getAPet)
 
-app.post('/user/update',updateUser)
+app.post('/user/update', updateUser)
+
+app.post('/pet/update', UpdatePet)
 
 app.listen(6969);

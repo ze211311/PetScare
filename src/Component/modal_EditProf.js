@@ -28,7 +28,6 @@ const Modal_editProf = (context) => {
   const updateProfile = async () => {
     if (profile != null) {
       const res = await axios.post('http://localhost:6969/upload/UProfile?ID=' + jwt(cookie.get("token")).ID, profile)
-      console.log(res)
     }
     const res = await axios.post("http://localhost:6969/user/update?id=" + jwt(cookie.get("token")).ID, {
       "phone": tel,
