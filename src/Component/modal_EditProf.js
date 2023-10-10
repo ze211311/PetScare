@@ -21,6 +21,7 @@ const Modal_editProf = (context) => {
     setUsername(context.username)
     setPassword(context.pd)
     setTel(context.tel)
+    setProfile()
   }, [openModal]);
 
 
@@ -29,6 +30,7 @@ const Modal_editProf = (context) => {
       const res = await axios.post('http://localhost:6969/upload/UProfile?ID=' + jwt(cookie.get("token")).ID, profile)
       console.log(res)
     }
+    const res = await axios.
     setOpenModal(undefined);
     window.location.reload(false);
   }
@@ -78,7 +80,6 @@ const Modal_editProf = (context) => {
                 onChange={() => {
                   const file = document.getElementById('userProfile').files;
                   setProfile(file);
-                  console.log(file)
                 }} />
               {(profile != null) ? <img src={URL.createObjectURL(profile[0])} /> : <></>}
             </div>

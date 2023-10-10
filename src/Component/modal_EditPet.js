@@ -10,7 +10,17 @@ const Modal_editProf = (context) => {
   const [weight, setWeight] = useState(0.0);
   const [clinic, setClinic] = useState("");
   const [petType, setPetType] = useState("");
+  const [profile, setProfile] = useState();
+
   useEffect(() => {
+    console.log(context)
+    setpid(context.pet.pid)
+    setPet_name(context.pet.pet_name)
+    setAge(context.pet.age)
+    setWeight(context.pet.weight)
+    setClinic(context.pet.clinic)
+    setPetType(context.pet.petType)
+    setProfile()
   }, [openModal]);
 
   return (
@@ -25,27 +35,48 @@ const Modal_editProf = (context) => {
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="email" value="Your email" />
+                <Label htmlFor="petname" value="Pet name" />
               </div>
-              <TextInput id="email" placeholder="name@tni.ac.th" required />
+              <TextInput id="petname" placeholder="pong" required value={pet_name} onChange={e => { setPet_name(e.target.value) }} />
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="username" value="Username : " />
+                <Label htmlFor="age" value="age" />
               </div>
-              <TextInput id="username" type="text" placeholder="Username" required />
+              <TextInput id="age" type="number" placeholder="69" required value={age} onChange={e => { setAge(e.target.value) }} />
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="password" value="Your password :" />
+                <Label htmlFor="weight" value="Weight" />
               </div>
-              <TextInput id="password" type="password" placeholder="Password" required />
+              <TextInput id="weight" type="number" placeholder="69.420" required value={weight} onChange={e => { setWeight(e.target.value) }} />
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="phone" value="Your phone number :" />
+                <Label htmlFor="clinic" value="clinic" />
               </div>
-              <TextInput id="tel" type="text" placeholder="0812345678" maxLength="10" required />
+              <TextInput id="clinic" type="text" placeholder="Tana Pong clinic" required value={clinic} onChange={e => { setClinic(e.target.value) }} />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="type" value="pet type" />
+              </div>
+              <TextInput id="type" type="text" placeholder="dog/cat/etc." required value={petType} onChange={e => { setPetType(e.target.value) }} />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label id="profile" value="Your profile image" />
+              </div>
+              <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="file"
+                id="userProfile"
+                accept="image/*"
+                onChange={() => {
+                  const file = document.getElementById('userProfile').files;
+                  setProfile(file);
+                  console.log(file)
+                }} />
+              {(profile != null) ? <img src={URL.createObjectURL(profile[0])} /> : <></>}
             </div>
             <div className="w-full">
               <Button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">Register</Button>

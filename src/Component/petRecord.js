@@ -21,7 +21,6 @@ const PetRecord = () => {
     }
     else {
       axios.get("http://localhost:6969/user/getAPet?id=" + location.slice(1)).then(response => {
-        console.log(response.data)
         setPet(response.data[0])
         if (response.data[0].petpicpath != null) {
           setppath(response.data[0].petpicpath)
