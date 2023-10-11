@@ -78,7 +78,7 @@ const getVac = (req, res) => {
 const getApp = (req, res) => {
   const id = req.query.id;
   const sqlStatement =
-    "select * from Appointments A join Pet p on A.pid = p.pid join Vet v on A.Vet_id = v.Vet_id join Treatment t on A.Tre_ID = t.Tre_ID where A.pid = ?;";
+    "select * from Appointments A join Pet p on A.pid = p.pid join Vet v on A.Vet_id = v.Vet_id join Treatment t on A.Tre_ID = t.Tre_ID join Symtom s on s.Sym_ID = A.Sym_ID where A.pid = ?;";
     db.query(sqlStatement, [id], (err, result) => {
       if (err) {
         console.log(err);

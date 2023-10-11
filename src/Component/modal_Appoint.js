@@ -35,6 +35,12 @@ const Modal_appoint = () => {
                 <Table.HeadCell>
                   Vet.
                 </Table.HeadCell>
+                <Table.HeadCell>
+                  Treatment.
+                </Table.HeadCell>
+                <Table.HeadCell>
+                  Symptom.
+                </Table.HeadCell>
               </Table.Head>
               <Table.Body className="divide-y">
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -46,30 +52,6 @@ const Modal_appoint = () => {
                   </Table.Cell>
                   <Table.Cell>
                     Laptop
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                    <p>
-                      Microsoft Surface Pro
-                    </p>
-                  </Table.Cell>
-                  <Table.Cell>
-                    White
-                  </Table.Cell>
-                  <Table.Cell>
-                    Laptop PC
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                    Magic Mouse 2
-                  </Table.Cell>
-                  <Table.Cell>
-                    Black
-                  </Table.Cell>
-                  <Table.Cell>
-                    Accessories
                   </Table.Cell>
                 </Table.Row>
               </Table.Body>
