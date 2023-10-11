@@ -67,6 +67,7 @@ create table
         Vet_id INTEGER not null,
         Tre_ID INTEGER not null,
         Sym_ID INTEGER not null,
+        Appdate date DEFAULT(current_date),
         PRIMARY KEY(
             Appo_ID,
             pid,

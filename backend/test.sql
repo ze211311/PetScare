@@ -42,3 +42,15 @@ insert into Vaccine(Vac_name) values("testVacc");
     insert into Vaccine_List(Vac_ID, pid) values (1,2);
     insert into Vaccine_List(Vac_ID, pid) values (1,3);
     insert into Vaccine_List(Vac_ID, pid) values (1,4);
+
+    select * from Appointments A join Pet p on A.pid = p.pid join Vet v on A.Vet_id = v.Vet_id where A.pid = 1;
+
+
+    insert into `Appointments`(pid, Vet_id, Tre_ID, Sym_ID) values (1,1,1,1);
+    insert into `Appointments`(pid, Vet_id, Tre_ID, Sym_ID) values (1,1,2,3);
+    insert into `Appointments`(pid, Vet_id, Tre_ID, Sym_ID) values (1,1,3,2);
+
+
+    insert into `Treatment`(Tre_name) values ("Inspection");
+    insert into `Treatment`(Tre_name) values ("Surgery");
+    insert into `Treatment`(Tre_name) values ("Check");
