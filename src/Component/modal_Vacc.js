@@ -11,8 +11,9 @@ const Modal_Vacc = () => {
   const [openModal, setOpenModal] = useState("");
   const [vac, setVac] = new useState([]);
   useEffect(()=>{
-    axios.get("http://localhost:6969/pet/getVac?id=" + location[1]).then((response)=>{
+    axios.get("http://localhost:6969/pet/getVac?id=" + location.split('#')[1]).then((response)=>{
       setVac(response.data)
+      console.log(location.split('#')[1])
     })
   },[])
   return (
@@ -56,7 +57,15 @@ const Modal_Vacc = () => {
                   <Table.Cell>
                     {item.DDate.split("T")[0]}
                   </Table.Cell>
-                </Table.Row>) : <></> }
+                </Table.Row>) : 
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                  </Table.Cell>
+                  <Table.Cell>
+                  </Table.Cell>
+                  <Table.Cell>
+                  </Table.Cell>
+                </Table.Row> }
               </Table.Body>
             </Table>
             <div className="w-full">

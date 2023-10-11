@@ -2,11 +2,21 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button, Checkbox, Label, Modal, TextInput, Table } from 'flowbite-react';
 import React from "react";
 import Popup from 'reactjs-popup';
-import { useState } from "react";
-import Image_2 from "./img/cal.png"
+import { useState, useEffect } from "react";
+import Image_2 from "./img/cal.png";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Modal_appoint = () => {
+  const location = new useLocation().hash;
   const [openModal, setOpenModal] = useState("");
+  const [app, setApp] = new useState([]);
+  useEffect(()=>{
+    axios.get("http://localhost:6969/pet/getApp?id=" + location.split('#')[1]).then((response)=>{
+      setApp(response.data)
+      console.log(response.data)
+    })
+  },[])
   return (
     <>
       <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-purple-600" onClick={() => setOpenModal('form-elements')}>
@@ -30,9 +40,6 @@ const Modal_appoint = () => {
                   Date
                 </Table.HeadCell>
                 <Table.HeadCell>
-                  Clinic
-                </Table.HeadCell>
-                <Table.HeadCell>
                   Vet.
                 </Table.HeadCell>
                 <Table.HeadCell>
@@ -43,17 +50,30 @@ const Modal_appoint = () => {
                 </Table.HeadCell>
               </Table.Head>
               <Table.Body className="divide-y">
-                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+              {(app.length != 0) ? app.map((item, i)=> 
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={i}>
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                    Apple MacBook Pro 17"
+                    {item.Appdate.split("T")[0]}
                   </Table.Cell>
                   <Table.Cell>
-                    Sliver
+                    {item.Vet_name}
                   </Table.Cell>
                   <Table.Cell>
-                    Laptop
+                    {item.Tre_name}
                   </Table.Cell>
-                </Table.Row>
+                  <Table.Cell>
+                    {item.Sym_name}
+                  </Table.Cell>
+                </Table.Row>) : <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                  </Table.Cell>
+                  <Table.Cell>
+                  </Table.Cell>
+                  <Table.Cell>
+                  </Table.Cell>
+                  <Table.Cell>
+                  </Table.Cell>
+                </Table.Row>}
               </Table.Body>
             </Table>
             <div className="w-full">
