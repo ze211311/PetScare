@@ -18,6 +18,7 @@ const List = () => {
   const [password, setPassword] = new useState('');
   const [email, setEmail] = new useState('');
   const [PicPath, setPicPath] = new useState('/Uplaceholder.png');
+  const [utype, setUtype] = new useState('');
 
   //pet info
   const [AllPet, setAllPet] = new useState([]);
@@ -33,6 +34,7 @@ const List = () => {
         setEmail(response.data[0].email)
         setUsername(response.data[0].username)
         setPassword(response.data[0].password)
+        setUtype(response.data[0].User_type)
         if (response.data[0].propic_path != null) {
           setPicPath(response.data[0].propic_path)
         }
@@ -70,7 +72,7 @@ const List = () => {
       <div className="mt-10 mx-auto max-w-auto bg-yellow rounded-xl overflow-hidden md:max-w-max mb-20">
         {(AllPet.length != 0) ? AllPet.map((item, i)=> <PetCard key={i} item={item} />) : <div className="text-center p-2">YOU HAVE NO PET ON OUR PLATFORM!!!</div>}
       </div>
-      <BNav />
+      <BNav utype={utype} />
     </div>
   );
 };

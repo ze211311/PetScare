@@ -15,9 +15,9 @@ const Status_post = (context) => {
       navigate("/")
     }
     else {
-     axios.get("http://localhost:6969/pet/getStatus?id=" + location[1]).then((response)=>{
+     axios.get("http://localhost:6969/pet/getStatus?id=" + location.split('#')[1]).then((response)=>{
       setStatus(response.data)
-      console.log(location)
+      console.log(Status)
     })
     }
   }, []);

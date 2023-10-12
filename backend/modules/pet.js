@@ -88,4 +88,30 @@ const getApp = (req, res) => {
     });
 }
 
-module.exports = { UpdatePet, getAPet, getStatus, regPet, getVac, getApp };
+const getAVeripet = (req, res) => {
+  const id = req.query.id;
+  const sqlStatement =
+    "select * from Pet p where Vet_id is null;";
+  db.query(sqlStatement, [id], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500);
+    }
+    res.send(result);
+  });
+};
+
+const getAVet = (req, res) => {
+  const id = req.query.id;
+  const sqlStatement =
+    "select * from Pet p join Vet v on p.Vet_id = v.Vet_id;";
+  db.query(sqlStatement, [id], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500);
+    }
+    res.send(result);
+  });
+};
+
+module.exports = { UpdatePet, getAPet, getStatus, regPet, getVac, getApp, getAVeripet, getAVet };
