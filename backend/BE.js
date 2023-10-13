@@ -8,7 +8,7 @@ const { getUser, updateUser } = require('./modules/User.js')
 const fileUpload = require('express-fileupload')
 const { uploadUProfile, uploadPProfile } = require('./modules/imgUP.js');
 const { getPetCard } = require('./modules/user_side.js');
-const { UpdatePet, getAPet, getStatus, regPet, getVac, getApp } = require('./modules/pet.js')
+const { UpdatePet, getAPet, getStatus, regPet, getVac, getApp, getAVet } = require('./modules/pet.js')
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,5 +49,7 @@ app.post('/pet/regPet', regPet)
 app.get('/pet/getVac', getVac)
 
 app.get('/pet/getApp', getApp)
+
+app.get('/user/getAVet', getAVet)
 
 app.listen(6969);

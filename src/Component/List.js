@@ -17,6 +17,7 @@ const List = () => {
   const [username, setUsername] = new useState('');
   const [password, setPassword] = new useState('');
   const [email, setEmail] = new useState('');
+  const [uty, setUty] = new useState('');
   const [PicPath, setPicPath] = new useState('/Uplaceholder.png');
 
   //pet info
@@ -33,13 +34,23 @@ const List = () => {
         setEmail(response.data[0].email)
         setUsername(response.data[0].username)
         setPassword(response.data[0].password)
+        setUty(response.data[0].User_type)
+        console.log(response.data[0].User_type)
         if (response.data[0].propic_path != null) {
           setPicPath(response.data[0].propic_path)
         }
-      })
-      axios.get("http://localhost:6969/user/getPet?ID=" + jwt(cookie.get("token")).ID).then(response => {
-        setAllPet(response.data)
-        console.log(response.data)
+        if (response.data[0].User_type != 1) {
+          axios.get("http://localhost:6969/user/getPet?ID=" + jwt(cookie.get("token")).ID).then(response => {
+            setAllPet(response.data)
+            console.log(response.data)
+          })
+        }
+        else {
+          axios.get("http://localhost:6969/user/getAVet?ID=" + jwt(cookie.get("token")).ID).then(response => {
+            setAllPet(response.data)
+            console.log(response.data)
+          })
+        }
       })
     }
   }, []);

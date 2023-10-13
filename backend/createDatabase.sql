@@ -21,7 +21,7 @@ create table
 create table
     if not exists Vet(
         Vet_id INTEGER PRIMARY KEY,
-        Vet_name VARCHAR(20) not null
+        Vet_name VARCHAR(25) not null
     );
 
 create table
